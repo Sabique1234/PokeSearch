@@ -7,25 +7,44 @@ import Search from './src/Search';
 
 
 
-export default function App() {
+export default class App extends React.Component {
+
+  state={currentScreen:"Landing"}
+
+
+  switchScreen=(currentScreen)=>{
+    this.setState({currentScreen})
+  }
+  renderScreen=()=>{
+
+   
+    if(this.state.currentScreen==="Landing"){
+      return(
+        <Landing switchScreen={this.switchScreen}/>
+        
+      );
+    }
+    if(this.state.currentScreen==="Search"){
+      return(
+          <Search/>
+      );
+    }
+  }
+
+
+  render(){
+
   return (
     
     <View style={styles.container}>
 
-
-      <Landing/>
-      <Search/>
-
-
-      <Text style={styles.text}>HELLO POKEMON</Text>
-      <Button/>
-        
-    
-
+     {this.renderScreen()}
 
       <StatusBar style="auto" />
+
     </View>
   );
+  }
 }
  
 
@@ -33,18 +52,12 @@ export default function App() {
 
 
 const styles={
-  
   container:{
   flex:1,
   marginTop:Platform.OS==='android'?350:0,
   align:'centre',
   marginLeft:125
 },
-text:{
-  marginLeft:10,
-  marginTop:-200
-}
-
 }
 
 

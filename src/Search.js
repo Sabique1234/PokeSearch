@@ -19,11 +19,12 @@ const styles={
     },
 
     textStyle:{
-        marginTop:200,
-        marginLeft:200,
+        marginTop:-200,
+        marginLeft:20,
         color:'orange',
-        width:20,
-        height:20
+        width:300,
+        height:200
     }
 
 }
+
